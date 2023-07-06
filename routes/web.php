@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CoordinatesController;
 use App\Http\Controllers\UsersController;
+use App\Models\Coordinates;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,8 +26,6 @@ Route::get('/app', function () {
     return view('app');
 });
 
-Route::resource("/coordinates", CoordinatesController::class);
-
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
@@ -34,6 +33,7 @@ Route::middleware([
 
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $coordinates = Coordinates::all();
+        return view('dashboard', compact('coordinates'));
     })->name('dashboard');
 });
