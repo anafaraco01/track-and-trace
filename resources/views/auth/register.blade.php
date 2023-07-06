@@ -1,3 +1,6 @@
+@if(!Auth::check())
+    {{ abort(404) }}
+@endif
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
