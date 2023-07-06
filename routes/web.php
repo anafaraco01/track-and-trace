@@ -23,8 +23,9 @@ Route::get('/', function () {
 Route::resource('/users', UsersController::class)->names('users');
 
 Route::get('/app', function () {
-    return view('app');
-});
+    $coordinates = Coordinates::all();
+    return view('app', compact('coordinates'));
+})->name('app');
 
 Route::middleware([
     'auth:sanctum',

@@ -1,10 +1,5 @@
 <x-app-layout>
-
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Coordinates') }}
-        </h2>
-    </x-slot>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
@@ -12,7 +7,16 @@
                 <!-- resources/views/vehicles/index.blade.php -->
 
                 @section('content')
-                    <table>
+                    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+                    <section class="hero  is-small  is-bold" style="background-color: cornflowerblue">
+                        <div class="hero-body">
+                            <div class="container">
+                                <p class="title is-2">Coordinates</p>
+                                <p class="subtitle is-3">Set your coordinates</p>
+                            </div>
+                        </div>
+                    </section>
+                    <table class="table">
                         <thead>
                         <tr>
                             <th>Place</th>
@@ -23,7 +27,8 @@
                         </thead>
                         <tbody>
                         @foreach($coordinates as $coordinate)
-                            <tr>
+                            <tr bgcolor="{{ $coordinate->permission === 'Allowed' ? 'lightgreen' : ($coordinate->permission === 'Forbidden' ? 'red' : ($coordinate->permission === 'Conditional' ? 'lightblue': '')) }}">
+
                                 <td>{{ $coordinate->place }}</td>
                                 <td>{{ $coordinate->y_coordinate }}</td>
                                 <td>{{ $coordinate->x_coordinate }}</td>
