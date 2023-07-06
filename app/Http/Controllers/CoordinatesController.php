@@ -13,7 +13,7 @@ class CoordinatesController extends Controller
     public function index()
     {
         $coordinates = Coordinates::all();
-        return view('coordinates.index', compact('coordinates'));
+        return view('dashboard', compact('coordinates'));
     }
 
     /**

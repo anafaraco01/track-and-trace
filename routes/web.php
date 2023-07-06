@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CoordinatesController;
 use App\Http\Controllers\UsersController;
+use App\Models\Coordinates;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,10 +23,9 @@ Route::get('/', function () {
 Route::resource('/users', UsersController::class)->names('users');
 
 Route::get('/app', function () {
-    return view('app');
-});
-
-Route::resource("/coordinates", CoordinatesController::class);
+    $coordinates = Coordinates::all();
+    return view('app', compact('coordinates'));
+})->name('app');
 
 Route::middleware([
     'auth:sanctum',
@@ -34,6 +34,7 @@ Route::middleware([
 
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        $coordinates = Coordinates::all();
+        return view('dashboard', compact('coordinates'));
     })->name('dashboard');
 });

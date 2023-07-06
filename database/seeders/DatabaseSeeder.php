@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
         $this->call(CoordinatesSeeder::class);
 
         User::factory()->create([
-            'name' => 'Zeeland Refinary',
+            'name' => 'Zeeland Refinary User',
             'email' => 'user@gmail.com',
             'password' => Hash::make('12345678'),
             'role' => 'user',
         ]);
         User::factory()->create([
-            'name' => 'Zeeland Refinary',
+            'name' => 'Zeeland Refinary Admin',
             'email' => 'admin@gmail.com',
             'password' => Hash::make('12345678'),
             'role' => 'admin',
