@@ -17,11 +17,10 @@
         /* Additional styles for image and buttons */
         html, body {
             height: 100%;
-            /*display: flex;*/
+            display: flex;
             align-items: center;
             justify-content: center;
-            background-image: url({{ asset('images/trackandtracebackground.png') }});
-            background-repeat: no-repeat;
+            background: url({{ asset('images/refineryphoto.jpg') }}) no-repeat center center fixed;
             background-size: cover;
         }
 
