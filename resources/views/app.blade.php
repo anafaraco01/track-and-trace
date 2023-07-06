@@ -8,6 +8,10 @@
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
+
     <link href="https://fonts.bunny.net/css?family=figtree:400,600&display=swap" rel="stylesheet" />
 
     <!-- Styles -->
@@ -16,38 +20,25 @@
  * Always set the map height explicitly to define the size of the div element
  * that contains the map.
  */
-        #map {
-            height: 100%;
-        }
+        #map { height: 50vh; width: 50vw; left: 30vw}
 
-        /*
-         * Optional: Makes the sample page fill the window.
-         */
-        html,
-        body {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-        }
     </style>
 </head>
 <body class="antialiased">
 <div id="map"></div>
-<script
-    src="https://maps.googleapis.com/maps/api/js?key={{ env('GOOGLE_MAPS_API_KEY') }}&callback=initMap&&v=weekly"
-    async></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin=""></script>
 <script>
-    let map;
+    var map = L.map('map').setView([51.5, 3.61389], 13);
 
-    async function initMap() {
-        //@ts-ignore
-        const { Map } = await google.maps.importLibrary("maps");
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 
-        map = new Map(document.getElementById("map"), {
-            center: { lat: -34.397, lng: 150.644 },
-            zoom: 8,
-        });
-    }
+    L.marker([51.5, 3.61389]).addTo(map)
+        .bindPopup('A pretty CSS popup.<br> Easily customizable.')
+        .openPopup();
 
 </script>
 </body>
