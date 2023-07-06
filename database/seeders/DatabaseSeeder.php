@@ -14,6 +14,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        $this->call(CoordinatesSeeder::class);
+
         User::factory()->create([
             'name' => 'Zeeland Refinary',
             'email' => 'user@gmail.com',
@@ -26,5 +28,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
             'role' => 'admin',
         ]);
+
     }
 }
