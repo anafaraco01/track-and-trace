@@ -28,35 +28,138 @@
             text-align: center;
             margin-bottom: 2rem;
         }
-
-        .login-register-buttons {
-            text-align: center;
+        .login-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 400px;
+            padding: 40px;
+            transform: translate(-50%, -50%);
+            background: transparent; /* Change the background color to green */
+            box-sizing: border-box;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
         }
 
-        .login-button,
-        .register-button {
-            margin: 0.5rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 1rem;
-            background-color: #3490dc;
+        .login-box a {
+            position: absolute;
+            display: block;
+        }
+        a:hover {
+            background: #03e9f4;
+            color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 5px #03e9f4,
+            0 0 25px #03e9f4,
+            0 0 50px #03e9f4,
+            0 0 100px #03e9f4;
+        }
+        .login-button {
+            background-color: dodgerblue;
+            border: none;
             color: white;
-            border-radius: 0.25rem;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            margin: 1px 1px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+        }
+        .login-box a span {
+            position: absolute;
+            display: block;
         }
 
-        .login-button:hover,
-        .register-button:hover {
-            background-color: #2779bd;
+        .login-box a span:nth-child(1) {
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #03e9f4);
+            animation: btn-anim1 1s linear infinite;
         }
+
+        @keyframes btn-anim1 {
+            0% {
+                left: -100%;
+            }
+            50%,100% {
+                left: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, transparent, #03e9f4);
+            animation: btn-anim2 1s linear infinite;
+            animation-delay: .25s
+        }
+
+        @keyframes btn-anim2 {
+            0% {
+                top: -100%;
+            }
+            50%,100% {
+                top: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(3) {
+            bottom: 0;
+            right: -100%;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg, transparent, #03e9f4);
+            animation: btn-anim3 1s linear infinite;
+            animation-delay: .5s
+        }
+
+        @keyframes btn-anim3 {
+            0% {
+                right: -100%;
+            }
+            50%,100% {
+                right: 100%;
+            }
+        }
+
+        .login-box a span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg, transparent, #03e9f4);
+            animation: btn-anim4 1s linear infinite;
+            animation-delay: .75s
+        }
+
+        @keyframes btn-anim4 {
+            0% {
+                bottom: -100%;
+            }
+            50%,100% {
+                bottom: 100%;
+            }
+        }
+
+
     </style>
+
 </head>
 <body>
 <div class="image-container">
     <img src="{{ asset('images/zeelandrefinerytrans.png') }}" alt="Image Description" width="500" height="70">
 </div>
-<div class="login-register-buttons">
-    <a href="{{ route('login') }}" class="login-button">Login</a>
+<div class="login-box">
+
+<a href="{{ route('login') }}" class="login-button"> <span></span>
+    <span></span>
+    <span></span>
+    <span></span>Login</a>
 </div>
 </body>
 </html>
