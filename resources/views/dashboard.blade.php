@@ -2,9 +2,8 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
         <style>
-            .table-bordered th,
-            .table-bordered td {
-                border-right: 1px solid #dbdbdb;
+            table td + td {
+                border-left: 2px solid red;
             }
         </style>
         <div class="py-12">
@@ -37,11 +36,10 @@
                                         </thead>
                                         <tbody>
                                         @foreach($coordinates as $coordinate)
-                                            <tr class="{{ $coordinate->permission === 'Allowed' ? 'bg-green-500' : ($coordinate->permission === 'Forbidden' ? 'bg-red-500' : ($coordinate->permission === 'Conditional' ? 'bg-blue-400' : '')) }}">
-                                                <td>{{ $coordinate->place }}</td>
-                                                <td>{{ $coordinate->y_coordinate }}</td>
-                                                <td>{{ $coordinate->x_coordinate }}</td>
-                                                <td>{{ $coordinate->permission }}</td>
+                                                <td class="nv-box">{{ $coordinate->place }}</td>
+                                                <td class="nv-box">{{ $coordinate->y_coordinate }}</td>
+                                                <td class="nv-box">{{ $coordinate->x_coordinate }}</td>
+                                                <td class="{{ $coordinate->permission === 'Allowed' ? 'bg-green-500' : ($coordinate->permission === 'Forbidden' ? 'bg-red-500' : ($coordinate->permission === 'Conditional' ? 'bg-blue-400' : '')) }}">{{ $coordinate->permission }}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
