@@ -23,9 +23,9 @@
 
         <div id="map"></div>
         <div style="float: left; margin-left: 60px; position: absolute;">
-            <div id="blueCarErrorForbidden" style="background-color: red; opacity: 70%; padding: 30px; text-align: center; margin-top: -450px; display: none"><p style="color: black; font-size: 20px"><strong>FORBIDDEN</strong> The blue car is not allowed to be here</p></div>
-            <div id="blueCarErrorConditional" style="background-color: yellow; opacity: 70%; padding: 20px; text-align: center; margin-top: -450px; display: none; margin-left: 80px"><p style="color: black; font-size: 20px"><strong>TIME</strong> The blue car has exceeded<br>the allowed duration time</p></div>
-            <div id="redCarError" style="background-color: red; opacity: 70%; padding: 30px; text-align: center; margin-top: -200px; display: none"><p style="color: black; font-size: 20px"><strong>FORBIDDEN</strong> The red car is not allowed to be here</p></div>
+            <div id="blueCarErrorForbidden" style="position: absolute; background-color: red; opacity: 70%; padding: 30px; text-align: center; margin-top: -450px; display: none"><p style="color: black; font-size: 20px; width: 400px"><strong>FORBIDDEN</strong> The blue car is not allowed to be here</p></div>
+            <div id="blueCarErrorConditional" style="position: absolute; background-color: yellow; opacity: 70%; padding: 20px; text-align: center; margin-top: -450px; display: none; margin-left: 50px; width: 400px"><p style="color: black; font-size: 20px"><strong>TIME</strong> The blue car has exceeded<br>the allowed duration time</p></div>
+            <div id="redCarError" style="position: absolute; background-color: red; opacity: 70%; padding: 30px; text-align: center; margin-top: -200px; display: none"><p style="color: black; font-size: 20px; width: 400px"><strong>FORBIDDEN</strong> The red car is not allowed to be here</p></div>
         </div>
         <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
                 integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
