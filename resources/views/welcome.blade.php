@@ -43,6 +43,9 @@
 
         .login-box a {
             position: absolute;
+            top: 50%;
+            right: 10px;  /* Adjust the value as needed */
+            transform: translateY(-50%);
             display: block;
         }
         a:hover {
